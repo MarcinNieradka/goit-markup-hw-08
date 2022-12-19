@@ -21,6 +21,8 @@
 
   &:hover,
   &:focus {
+    outline-color: $hover-bg-color;
+    outline-offset: 5px;
     color: $hover-bg-color;
   }
 

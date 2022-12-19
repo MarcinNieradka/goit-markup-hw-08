@@ -29,6 +29,8 @@
 
     &:hover,
     &:focus {
+      outline-offset: 4px;
+      outline-color: $hover-bg-color;
       cursor: pointer;
       background-color: $hover-bg-color;
       color: $color-white;
@@ -78,8 +80,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    // width: 370px;
-    // height: 294px;
+    width: 370px;
+    height: 294px;
     overflow: hidden;
   }
 

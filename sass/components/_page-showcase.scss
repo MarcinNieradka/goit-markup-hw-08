@@ -230,4 +230,9 @@
 
 .policy-link {
   color: $hover-bg-color;
+
+  &:focus {
+    outline-color: $hover-bg-color;
+    outline-offset: 3px;
+  }
 }
