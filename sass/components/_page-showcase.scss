@@ -179,7 +179,10 @@
   &__checkbox {
     width: 16px;
     height: 15px;
-    position: relative;
+    // position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid;
     border-radius: 2px;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -190,9 +193,9 @@
     }
 
     &:checked::before {
-      position: absolute;
-      top: -1px;
-      left: -1px;
+      // position: absolute;    /* either that + relative in checkbox, or flex + just&align in checkbox*/
+      // top: -1px;
+      // left: -1px;
       content: url("../images/check-in.svg");
       width: 15px;
       height: 15px;
