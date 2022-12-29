@@ -4,26 +4,21 @@
 .showcase {
   /* background-color: var(--bg-dark-color); */
   text-align: center;
-  height: 600px;
-  padding: 200px 0px;
-  max-width: 1600px;
-  background-size: contain;
+  // height: 600px;
+  padding: 118px 0px;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase.jpg);
+  background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase-vertical.jpg);
 }
 
 .showcase-h1 {
-  @include font-mixin($color-white, 900, 44px, 1.37, 0.06em);
+  @include font-mixin($color-white, 900, 26px, 1.61, 0.06em);
   margin: 0px auto 30px;
   text-transform: uppercase;
   text-align: center;
-  // color: $color-white;
-  // font-weight: 900;
-  // font-size: 44px;
-  // line-height: 1.37;
-  // letter-spacing: 0.06em;
-  width: 700px;
+  max-width: 365px;
+  // min-width: 320px;
 }
 
 /* ============================================== MODAL ============================================ */
@@ -34,7 +29,7 @@
   position: relative;
   padding: 40px;
   width: 528px;
-  height: 581px;
+  // height: 581px;
   margin: auto;
   background-color: $color-white;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -71,7 +66,6 @@
 }
 
 .backdrop {
-  /* position: relative; */
   cursor: not-allowed;
   display: flex;
   position: fixed;
@@ -250,12 +244,7 @@
 
   &__policy-text {
     /* background-color: orange; */
-    @include font-mixin($font-secondary-color, 400, 14px, 1.71, 0.03em);
-    // color: $font-secondary-color;
-    // font-weight: 400;
-    // font-size: 14px;
-    // line-height: 1.71;
-    // letter-spacing: 0.03em;
+    @include font-mixin($font-secondary-color, 400, 12px, 1.16, 0.03em);
     display: flex;
     gap: 8px;
     align-items: center;
@@ -274,5 +263,77 @@
   &:focus {
     outline-color: $hover-bg-color;
     outline-offset: 3px;
+  }
+}
+
+/* =============================== MEDIA =====================*/
+
+@media screen and (max-width: 767px) {
+  @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .showcase {
+      background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase-vertical@2x.jpg);
+    }
+  }
+  @media (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+    .showcase {
+      background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase-vertical@3x.jpg);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  @media (min-device-pixel-ratio: 1), (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi), (min-resolution: 1dppx) {
+    .showcase {
+      background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase-horizontal-tab.jpg);
+    }
+  }
+  @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .showcase {
+      background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase-horizontal-tab@2x.jpg);
+    }
+  }
+  @media (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+    .showcase {
+      background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase-horizontal-tab@3x.jpg);
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .showcase {
+    // height: 600px;
+    padding: 200px 0px;
+    background-size: cover;
+    // background-position: center;
+    background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase.jpg);
+  }
+
+  @media (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .showcase {
+      background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase@2x.jpg);
+    }
+  }
+  @media (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+    .showcase {
+      background-image: linear-gradient(to bottom, $showcase-bg, $showcase-bg), url(../images/showcase/showcase@3x.jpg);
+    }
+  }
+
+  .showcase-h1 {
+    @include font-mixin($color-white, 900, 44px, 1.37, 0.06em);
+    margin: 0px auto 30px;
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .main-form__policy-text {
+    /* background-color: orange; */
+    @include font-mixin($font-secondary-color, 400, 14px, 1.71, 0.03em);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px 30px 0px;
   }
 }

@@ -2,22 +2,23 @@
 @use "../utils/mixins" as *;
 
 .section-h2 {
-  @include font-mixin($font-main-color, 700, 36px, 1.17, 0.03em);
+  @include font-mixin($font-main-color, 700, 28px, 1.17, 0.03em);
   text-align: center;
-  margin: 0 auto 50px auto; /* 0 deletes spac between divs*/
+  margin: 0 auto 30px auto; /* 0 deletes spac between divs*/
 }
 
 .about-list {
   display: flex;
+  flex-direction: column;
   /* background-color: #f5f4fa; */ /*  ------- only to temporary preview box area*/
   list-style: none;
   justify-content: space-between;
   gap: 30px;
   /* margin: 0;  */ /* ------------ !!!!!!!!! deletes empty space between main and showcase*/
 
-  > li {
-    flex: 1; /* columns stay the same width no matter how much txt has one */
-  }
+  // > li {
+  //   flex: 1; /* columns stay the same width no matter how much txt has one */
+  // }
 
   &__icon-placeholder {
     padding: 25px 0;
@@ -30,6 +31,7 @@
     @include font-mixin($font-main-color, 700, 14px, 1.14, 0.03em);
     text-transform: uppercase;
     padding-top: 30px;
+    text-align: center;
   }
 
   &__article {
@@ -41,35 +43,32 @@
 /* ========================== WHAT WE DO ================= */
 
 .what-we-do {
-  /* background-color: #212121; */
-  margin-top: 94px;
+  display: none;
 }
 
 .about-pic-list {
   display: flex;
+  flex-direction: column;
   list-style: none;
-  margin: 0; /*  -------- deletes empyt space betweeen two divs*/
-  justify-content: space-between;
+  // gap: 30px;
+  // justify-content: space-between;
 
   &__offer {
     position: relative;
     display: flex;
     text-align: center;
+    width: 370px;
   }
 
   &__description {
     @include font-mixin($color-white, 700, 14px, 1.14, 0.03em);
-    // color: $color-white;
-    // font-weight: 700;
-    // font-size: 14px;
-    // line-height: 1.14;
-    // letter-spacing: 0.03em;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 70px;
+    // height: 70px;
+    padding: 25px 0px;
     bottom: 0;
     background: $about-bg-color;
     text-transform: uppercase;
@@ -84,9 +83,10 @@
 
 .team-list {
   display: flex;
+  flex-direction: column;
   list-style: none;
-  margin: 0; /* ------------ !!!!!!!!! deletes empty space between main and footer*/
-  justify-content: space-between;
+  gap: 10px;
+  // justify-content: space-between;
   text-align: center;
   /* background-color: yellow*/ /*  --------- only to temporary preview box area*/
 
@@ -98,7 +98,10 @@
     border-radius: 0px 0px 4px 4px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 
-    > img {
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: auto;
       display: block;
     }
   }
@@ -121,7 +124,8 @@
   padding: 0 32px;
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
+  justify-content: center;
 
   &__icon-placeholder {
     width: 44px;
@@ -147,19 +151,22 @@
 /* ========================== CLIENTS LIST ================ */
 
 .clients-list {
+  // background-color: aqua;
   display: flex;
   list-style: none;
-  padding: 0;
-  margin: 0; /* ------------ !!!!!!!!! deletes empty space between main and footer*/
+  // justify-content: center;
   justify-content: space-between;
-  /* text-align: center; */
-  /* background-color: yellow*/ /*  --------- only to temporary preview box area*/
+  gap: 20px;
+  flex-wrap: wrap;
   color: $default-icon-color;
 
   &__icon-placeholder {
     /* background-color: burlywood; */ /*  --------- only to temporary preview box area*/
-    min-width: 170px;
-    height: 92px;
+    // min-width: 170px;
+    // min-width: calc(100% / 2 - 2 * 5px);
+    min-width: calc((100% - 20px) / 2);
+    // height: 92px;
+    padding: 16px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,6 +178,119 @@
     &:focus {
       cursor: pointer;
       color: $hover-bg-color;
+    }
+  }
+}
+
+/* =============================== MEDIA =====================*/
+
+@media screen and (min-width: 480px) {
+}
+
+@media screen and (min-width: 768px) {
+  .about-list {
+    // background-color: bisque;
+    flex-direction: row;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+
+    > li {
+      flex-basis: calc((100% - 30px) / 2);
+    }
+
+    // &__article {
+    //   width: 354px;
+    // }
+  }
+
+  .team-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    text-align: center;
+    /* background-color: yellow*/ /*  --------- only to temporary preview box area*/
+
+    > li {
+      flex-basis: calc((100% - 30px) / 2);
+    }
+
+    &__name {
+      @include font-mixin($font-main-color, 500, 16px, 1.19, 0.03em);
+    }
+
+    &__job {
+      @include font-mixin($font-secondary-color, 400, 16px, 1.19, 0.03em);
+      // padding: 10px 0 16px 0;
+    }
+  }
+
+  .clients-list {
+    gap: 10px;
+
+    &__icon-placeholder {
+      min-width: calc((100% - 20px) / 3);
+      // height: 92px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .section-h2 {
+    @include font-mixin($font-main-color, 700, 36px, 1.17, 0.03em);
+    margin: 0 auto 50px auto; /* 0 deletes spac between divs*/
+  }
+
+  .about-list {
+    // background-color: red; /*  ------- only to temporary preview box area*/
+    flex-direction: row;
+    gap: 0px;
+    > li {
+      flex-basis: calc((100% - 90px) / 4);
+    }
+    &__article {
+      min-width: 270px;
+    }
+
+    &__title-h3 {
+      @include font-mixin($font-main-color, 700, 14px, 1.14, 0.03em);
+      text-transform: uppercase;
+      padding-top: 30px;
+      text-align: center;
+    }
+  }
+
+  .about-pic-list {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    // background-color: yellow;
+  }
+
+  .team-list > li {
+    // flex-basis: calc(100% / 4 - 2 * 7.5px);  /* because padding 15 in container */
+    flex-basis: calc((100% - 90px) / 4);
+  }
+
+  .what-we-do {
+    /* background-color: #212121; */
+    margin-top: 94px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .teammate-socials {
+    gap: 0px;
+  }
+
+  .clients-list {
+    justify-content: space-between;
+    gap: 10px;
+
+    &__icon-placeholder {
+      /* background-color: burlywood; */ /*  --------- only to temporary preview box area*/
+      min-width: calc((100% - 50px) / 6);
     }
   }
 }
