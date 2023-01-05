@@ -1,5 +1,6 @@
-@use "../utils/variables.scss" as *;
+@use "../utils/variables" as *;
 @use "../utils/mixins" as *;
+@use "../utils/placeholders" as *;
 
 .section-h2 {
   @include font-mixin($font-main-color, 700, 28px, 1.17, 0.03em);
@@ -10,15 +11,9 @@
 .about-list {
   display: flex;
   flex-direction: column;
-  /* background-color: #f5f4fa; */ /*  ------- only to temporary preview box area*/
   list-style: none;
   justify-content: space-between;
   gap: 30px;
-  /* margin: 0;  */ /* ------------ !!!!!!!!! deletes empty space between main and showcase*/
-
-  // > li {
-  //   flex: 1; /* columns stay the same width no matter how much txt has one */
-  // }
 
   &__icon-placeholder {
     padding: 25px 0;
@@ -246,11 +241,12 @@
     flex-direction: row;
     gap: 0px;
     > li {
-      flex-basis: calc((100% - 90px) / 4);
+      // flex-basis: calc((100% - 90px) / 4);
+      flex-basis: 270px;
     }
-    &__article {
-      min-width: 270px;
-    }
+    // &__article {
+    //   min-width: 270px;
+    // }
 
     &__title-h3 {
       @include font-mixin($font-main-color, 700, 14px, 1.14, 0.03em);

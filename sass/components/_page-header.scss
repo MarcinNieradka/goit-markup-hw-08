@@ -1,5 +1,6 @@
 @use "../utils/variables.scss" as *;
 @use "../utils/mixins" as *;
+@use "../utils/placeholders" as *;
 
 .header {
   border-bottom: 1px solid $nav-border-color;
@@ -35,11 +36,6 @@
   &__link {
     @include font-mixin($font-main-color, 500, 14px, 1.14, 0.02em);
     /* display: block; */
-    // color: $font-main-color;
-    // font-weight: 500;
-    // font-size: 14px;
-    // line-height: 1.14;
-    // letter-spacing: 0.02em;
 
     &--current {
       color: $hover-bg-color;
@@ -73,31 +69,8 @@
     @include font-mixin($font-secondary-color, 500, 14px, 1.14, 0.02em);
     display: flex;
     align-items: center;
-    // color: $font-secondary-color;
-    // font-weight: 500;
-    // font-size: 14px;
-    // line-height: 1.14;
-    // letter-spacing: 0.02em;
-    /* vertical-align: middle; */
     outline: none;
-
-    &::after {
-      content: "";
-      width: 0;
-      height: 2px;
-      position: absolute;
-      bottom: -4px;
-      right: 0;
-      background: $hover-bg-color;
-      transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    &:focus::after,
-    &:hover::after {
-      width: 100%;
-      left: 0;
-      transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    @extend %underline-link-animation;
 
     &:hover .nav__contact-icon,
     &:focus .nav__contact-icon {
@@ -235,7 +208,6 @@
 
 /* =============================== MEDIA =====================*/
 
-// @media screen and (min-width: 420px) and (max-width: 719px) {
 @media screen and (max-width: 767px) {
   .nav {
     display: none;

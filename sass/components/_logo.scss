@@ -1,5 +1,6 @@
-@use "../utils/variables.scss" as *;
+@use "../utils/variables" as *;
 @use "../utils/mixins" as *;
+@use "../utils/placeholders" as *;
 
 .logo {
   @include font-mixin($color-black, initial, 26px, 1.2, 0.03em);
